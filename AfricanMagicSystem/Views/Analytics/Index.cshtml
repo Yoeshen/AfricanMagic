@@ -185,6 +185,16 @@
                 }
             });
 </script>
+@using (Html.BeginForm("Popular", "Analytics"))
+{
+    @Html.AntiForgeryToken();
+    <input type="submit" />
+}
+@using (Html.BeginForm("TotalSalesAmount", "Analytics"))
+{
+    @Html.AntiForgeryToken();
+    <input type="submit" />
+}
 <div>
     <div>
         @Html.ActionLink("Export Sales", "ExportSales", "Analytics", new { @class = "btn btn-primary" })

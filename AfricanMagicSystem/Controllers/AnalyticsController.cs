@@ -266,5 +266,45 @@ namespace AfricanMagicSystem.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Popular()
+        {
+            var topProducts = db.SalesDetails
+                .GroupBy(x => x.ProductId)
+                .OrderByDescending(g => g.Count())
+                .Take(5)
+                .Select(x => x.Key)
+                .ToList();
+
+            var ProductName = db.Products
+                .Where(x => topProducts.Contains(x.ID));
+            foreach(var r in ProductName)
+            {
+                ViewBag.Message += r.Name ;
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TotalSalesAmount()
+        {
+            List<SaleDetail> check = (from x in db.SalesDetails
+                                      select x).ToList();
+
+            decimal ttl = 0.0m;
+            foreach(var y in check)
+            {
+                ttl += y.UnitPrice;
+            }
+
+            ViewBag.Message = "Total Sale Amount = R" + ttl;
+
+            return View();
+            
+        }
     }
 }
