@@ -69,3 +69,51 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.section-1{
+    position:relative;
+}
+
+.background{
+    height:100vh;
+    background-size:100%;
+    background-image:url('../img/Anime Wallpaper 22.jpg');
+    background-repeat:no-repeat;
+
+}
+
+.title-box {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-primary {
+    height: 2rem;
+    width: 4rem;
+    background-color: #100328;
+    color: white;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem 3rem;
+    border-radius: 0rem;
+}
+
+.button-secondary {
+    height: 2rem;
+    width: 4rem;
+    background-color: #010332;
+    color: white;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem 3rem;
+    border-radius: 0rem;
+}
